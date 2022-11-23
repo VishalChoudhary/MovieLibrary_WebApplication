@@ -23,11 +23,10 @@ app.get('/register',(req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    const invalid=req.flash('userInvalid');
     res.render('login',{status:true});
 });
 
-app.get('index',(req,res)=>{
+app.get('/index',(req,res)=>{
     res.render('index')
 });
 
@@ -47,7 +46,7 @@ app.post('/register', async (req, res) => {
         });
         
         await newUser.save();
-        return res.status(201).render('index');
+        return res.status(201).redirect('./index');
     }catch(err) {
         console.error(err.message)
         return res.status(500).render('register',{status:false});
@@ -66,7 +65,7 @@ app.post('/login', async (req, res) => {
         const storedPass = user.password;
         const isValid = await bcrypt.compare(password,storedPass);
         
-        if(isValid) return res.status(201).render('index');
+        if(isValid) return res.redirect('./index');
         let error = new Error("passord missmatch");
         error.code ="WP";
         throw error;
