@@ -32,8 +32,8 @@ function displayMovieList(movies){
         movieListItem.classList.add('search-list-item');
         if(movies[idx].Poster != "N/A")
             moviePoster = movies[idx].Poster;
-        else 
-            moviePoster = "image/image_not_found.png";
+        // else 
+        //     moviePoster = "image/image_not_found.png";
 
         movieListItem.innerHTML = `
         <div class = "search-item-thumbnail">
@@ -56,7 +56,7 @@ function loadMovieDetails(){
             // console.log(movie.dataset.id);
             searchList.classList.add('hide-search-list');
             movieSearchBox.value = "";
-            const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=be2acd45`);
+            const result = await fetch(`http://www.omdbapi.com/?s=${movie.dataset.id}&apikey=be2acd45`);
             const movieDetails = await result.json();
             // console.log(movieDetails);
             displayMovieDetails(movieDetails);
