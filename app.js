@@ -3,12 +3,14 @@ const path = require('path');
 const ejs = require('ejs');
 const bcrypt = require("bcrypt");
 const bodyParser = require('body-parser');
+const cors=require('cors');
 require('./src/db/conn');
 const User = require('./src/models/userData');
 
 port=process.env.PORT||5000;
 
 const app = express();
+app.use(cors());
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended:false }));
