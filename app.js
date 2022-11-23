@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 require('./src/db/conn');
 const User = require('./src/models/userData');
 
+port=process.env.PORT||5000;
+
 const app = express();
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
@@ -91,6 +93,6 @@ app.post('/login', async (req, res) => {
 });
 
 
-app.listen(4000, () =>{
+app.listen(port, () =>{
     console.log('listening on port 5000');
 });
