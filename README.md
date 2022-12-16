@@ -1,7 +1,5 @@
-# Wolkus Technology Solutions Private Limited ( movie library web application)
+# Movie Library Web Application
 
-#### Deployed Link: https://wolkustechnology.herokuapp.com/
-#### Git Repository Link: https://github.com/VishalChoudhary/Wolkus_Technology-
 ---
 ## Requirements
 
